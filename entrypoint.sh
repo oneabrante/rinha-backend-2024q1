@@ -6,7 +6,7 @@ if echo "$MIGRATION_STATUS" | grep "Database schema is up to date"; then
     echo "No migrations needed."
 else
     echo "Running migrations..."
-    npx prisma migrate deploy
+    npx prisma migrate dev
     npx prisma db seed
 fi
 
