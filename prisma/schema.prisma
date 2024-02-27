@@ -13,20 +13,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Cliente {
+model cliente {
   id          Int      @id @default(autoincrement())
   nome        String
   limite      Int
   saldo       Int
-  transacoes  Transacao[]
+  transacoes  transacao[]
 }
 
-model Transacao {
+model transacao {
   id            String    @id @default(uuid())
   valor         Int
   tipo          String    
   descricao     String
   realizada_em  DateTime  @default(now())
-  cliente       Cliente   @relation(fields: [clienteId], references: [id])
+  cliente       cliente   @relation(fields: [clienteId], references: [id])
   clienteId     Int
 }
