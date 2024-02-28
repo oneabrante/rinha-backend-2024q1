@@ -12,10 +12,6 @@ RUN npm run generate
 
 COPY . .
 
-COPY entrypoint.sh /entrypoint.sh
-
-RUN chmod +x /entrypoint.sh
-
 EXPOSE 3000
 
-CMD ["sh", "/entrypoint.sh"]
+CMD ["npm", "run", "dev"]
